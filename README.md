@@ -95,23 +95,6 @@ const UserInfoWithUseReducer = () => {
   return (
     <div>
       <div className="mb-10">
-        <h1 className="h1 text-center">User Info Object Update of states</h1>
-        <div className="grid grid-cols-2 mt-4">
-          <div className="border-2 p-4 rounded-lg">
-            <h1 className="h1">User Name: {userState.name}</h1>
-            <h1 className="h1"> age: {userState.age}</h1>
-            <div className=" mt-4">
-              {" "}
-              hobbies:{" "}
-              {userState.hobbies.map((item: string, i: number) => {
-                return (
-                  <span key={i} className="m-2 p-2 badge badge-info">
-                    {item}
-                  </span>
-                );
-              })}
-            </div>
-          </div>
           {/* form */}
           <div className="border-2 p-4 rounded-lg">
             <form action="" onSubmit={handleSubmit}>
@@ -175,3 +158,7 @@ const UserInfoWithUseReducer = () => {
 export default UserInfoWithUseReducer;
 
 ```
+
+# # Context Api
+
+-
