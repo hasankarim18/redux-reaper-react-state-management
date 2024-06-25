@@ -1,16 +1,3 @@
-# # React one way data flow
-
-- react allow one way data flow, always patent to children
-- It may be partially solved by react's `useContext` api
-
-### # `useState` vs `useReducer`
-
-- useState is good for single update and for object update `useReducer` is good
-- `useReducer` came after `redux` and inspired by `redux`
-
-## A simple for using `useReducer`
-
-```
 import React, { useReducer } from "react";
 
 type GenericArray<T> = Array<T>;
@@ -173,5 +160,3 @@ const UserInfoWithUseReducer = () => {
 };
 
 export default UserInfoWithUseReducer;
-
-```
