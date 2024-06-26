@@ -1,18 +1,27 @@
-import React, { useContext } from "react";
-import { TodoContext } from "../context/TodoProvider";
+import React, { useContext, useState } from "react";
+import { TodoContext, TTodo } from "../context/TodoProvider";
+import { typeConstants } from "../context/constants";
 
 const TodoForm = () => {
-  const { todoLists, todoDispatch } = useContext(TodoContext);
+  const { todoDispatch } = useContext(TodoContext);
+  const [todoText, setTodoText] = useState("");
   // console.log(todoLists);
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const todoText = e.target.value;
+    const { value } = e.target;
     //  console.log(todoText);
+    setTodoText(value);
   };
 
   const submitHandler = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    //  todoDispatch({type:'addTodo', payload:})
+    const todo: TTodo = {
+      id: Math.random().toString(36).substring(2, 7),
+      title: todoText,
+      isCompleted: false,
+    };
+    todoDispatch({ type: typeConstants.ADD_TODO, payload: todo });
+    setTodoText("");
   };
 
   return (
@@ -24,6 +33,7 @@ const TodoForm = () => {
             type="text"
             name="todoText"
             onChange={changeHandler}
+            value={todoText}
             className="w-full p-4 border-2 rounded-lg"
           />
           <input type="submit" className="btn btn-success mt-4 " />
